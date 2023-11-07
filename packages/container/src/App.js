@@ -1,7 +1,17 @@
-import React from 'react'
+import React from "react";
 // import {mount} from 'marketing/MarketingApp'
-import MarketingApp from './components/MarketingApp'
+import MarketingApp from "./components/MarketingApp";
+import Header from "./components/Header";
+import { BrowserRouter } from "react-router-dom";
+BrowserRouter;
 // console.log(mount)
-export default ()=>{
-    return <div><h1>Hello there</h1><hr/><MarketingApp/></div>
-}
+export default () => {
+  return (
+    <BrowserRouter>
+      <div>
+        <Header />
+        <MarketingApp />
+      </div>
+    </BrowserRouter>
+  );
+};
