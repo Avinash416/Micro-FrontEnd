@@ -4,15 +4,15 @@ import {
   StylesProvider,
   createGenerateClassName,
 } from "@material-ui/core/styles";
+import SignIn from "./components/Signin";
+import SignUp from "./components/Signup";
 
-import Landing from "./components/Landing";
-import Pricing from "./components/Pricing";
 
 const generateClassName = createGenerateClassName({
-  productionPrefix: "ma",
+  productionPrefix: "au",
 });
 
-export default ({history}) => {
+export default ({history, onSignIn}) => {
   return (
     <div>
         {/* //we changed this to Router from BrowserRouter beacuse for navigation inegrtaion work properly we need to use  specific combination for conatiner and other apps 
@@ -22,8 +22,12 @@ export default ({history}) => {
       <StylesProvider generateClassName={generateClassName}>
       <Router history={history }> 
           <Switch>
-            <Route exact path="/" component={Landing} />
-            <Route exact path="/pricing" component={Pricing} />
+            <Route exact path="/auth/signin">
+            <SignIn onSignIn={onSignIn}/>
+            </Route>
+            <Route exact path="/auth/signup">
+              <SignUp onSignIn={onSignIn}/>
+            </Route>
           </Switch>
         </Router>
       </StylesProvider>
